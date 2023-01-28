@@ -12,6 +12,7 @@
     "watch": "yarn build -- --watch",
     "build": "tsc --build",
     "prestart": "yarn build",
+    "start:test": "yarn test && yarn start",
     "start": "node ./dist/main"
   },
   "dependencies": {},
