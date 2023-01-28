@@ -1,0 +1,24 @@
+{
+  "name": "toy-robot",
+  "version": "1.0.0",
+  "description": "Ai-Media toy robot technical assessment",
+  "main": "index.js",
+  "author": "3nzoo",
+  "license": "MIT",
+  "scripts": {
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test": "jest",
+    "watch": "yarn build -- --watch",
+    "build": "tsc --build",
+    "prestart": "yarn build",
+    "start": "node ./dist/main"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "29.4.0",
+    "jest": "29.4.1",
+    "ts-jest": "29.0.5",
+    "typescript": "4.9.4"
+  }
+}
