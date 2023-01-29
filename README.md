@@ -61,6 +61,6 @@ $ yarn start:test
 
 ## Reminder
 
-**You need to make a PLACE command first before being able to run other commands** \n
+**You need to make a PLACE command first before being able to run other commands**
 
 **The default size of the tabletop is 5x5. If the next move of the toy robot will exceed its boundaries or it will make it fall then no movement will be done.**
