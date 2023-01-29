@@ -31,7 +31,7 @@ $ yarn start:test
 > place(2,3,SOUTH)
 ```
 
-**left/LEFT or right/Right Command**, this will change the facing direction of your Toy Robot
+**LEFT/left or Right/right Command**, this will change the facing direction of your Toy Robot
 
 ```
 > left
@@ -41,19 +41,26 @@ $ yarn start:test
 > right
 ```
 
-**move/MOVE Command**, this will make your Toy Robot move forward depends on the direction it's facing.
+**MOVE/move Command**, this will make your Toy Robot move forward depends on the direction it's facing.
 
 ```
 > move
 ```
 
-**report/REPORT Command**, this will show the current x, y position and the current direction your toy robot is faceing.
+**REPORT/report Command**, this will show the current x, y position and the current direction your toy robot is faceing.
 
 ```
 > report
 ```
 
+**To close the running readline interface**, just simply type `exit` while running or you can do press `ctrl+c`
+
+```
+> exit
+```
+
 ## Reminder
 
-**You need to do the PLACE command first before being able to run other commands**
+**You need to make a PLACE command first before being able to run other commands** \n
+
 **The default size of the tabletop is 5x5. If the next move of the toy robot will exceed its boundaries or it will make it fall then no movement will be done.**
