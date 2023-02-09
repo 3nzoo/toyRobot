@@ -2,8 +2,25 @@
 
 import * as process from 'process';
 import * as readline from 'readline';
-import { left, move, place, report, right } from './commands';
-import { Direction, placeCommand, Robot, StringCommands } from './constants';
+import {
+  left,
+  move,
+  obs,
+  obstruction,
+  place,
+  report,
+  right,
+  tableSize,
+} from './commands';
+import {
+  Direction,
+  placeCommand,
+  Position,
+  Robot,
+  StringCommands,
+} from './constants';
+
+import { TABLETOP_SIZE } from './commands';
 
 const displayInterface = readline.createInterface({
   input: process.stdin,
@@ -16,6 +33,8 @@ let robot: Robot = {
   position: { x: 0, y: 0 },
   direction: Direction.NULL,
 };
+
+const regex = /\(([^)]+)\)/;
 
 console.log('Welcome to the ToyRobot Test');
 console.log(
@@ -30,7 +49,6 @@ displayInterface.on('line', (newCommand: placeCommand | StringCommands) => {
   if (command_Name.trim().substring(0, 5).replace(/[()]/g, '') === 'place') {
     if (command_Name.length < 6) return console.log('missing arguments');
 
-    const regex = /\(([^)]+)\)/;
     const result = command_Name
       ?.match(regex) //? use regex to get only the value inside the parenthesis
       ?.toString()
@@ -84,9 +102,42 @@ displayInterface.on('line', (newCommand: placeCommand | StringCommands) => {
     }
   } else if (command_Name === 'exit') {
     process.exit(0);
+  } else if (
+    command_Name.trim().substring(0, 11).replace(/[()]/g, '') === 'obstruction'
+  ) {
+    const result = command_Name
+      ?.match(regex) //? use regex to get only the value inside the parenthesis
+      ?.toString()
+      .replace(/[()"]/g, '') //? remove the parenthesis before converting to an array
+      .split(',');
+
+    if (
+      result &&
+      robot.position.x !== Number(result[0]) &&
+      robot.position.y !== Number(result[1])
+    ) {
+      obstruction(Number(result[0]), Number(result[1]));
+    } else {
+      console.log('obstruction value error');
+    }
+  } else if (
+    command_Name.trim().substring(0, 9).replace(/[()]/g, '').toLowerCase() ===
+    'tablesize'
+  ) {
+    const result = command_Name
+      ?.match(regex) //? use regex to get only the value inside the parenthesis
+      ?.toString()
+      .replace(/[()"]/g, '') //? remove the parenthesis before converting to an array
+      .split(',');
+
+    if (result) {
+      tableSize(Number(result[0]));
+    } else {
+      console.log('invalid input');
+    }
   } else {
+    console.log(command_Name.trim().substring(0, 11).replace(/[()]/g, ''));
     console.log('invalid command');
   }
-
   displayInterface.prompt(true);
 });

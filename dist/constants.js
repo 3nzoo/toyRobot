@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.StringCommands = exports.TABLETOP_SIZE = exports.Direction = void 0;
+exports.StringCommands = exports.Direction = void 0;
 var Direction;
 (function (Direction) {
     Direction["NORTH"] = "NORTH";
@@ -9,7 +9,6 @@ var Direction;
     Direction["WEST"] = "WEST";
     Direction["NULL"] = "NULL";
 })(Direction = exports.Direction || (exports.Direction = {}));
-exports.TABLETOP_SIZE = 5;
 var StringCommands;
 (function (StringCommands) {
     StringCommands["LEFT"] = "LEFT";

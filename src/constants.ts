@@ -17,8 +17,6 @@ export interface Robot {
   direction: Direction;
 }
 
-export const TABLETOP_SIZE: number = 5;
-
 export enum StringCommands {
   LEFT = 'LEFT',
   RIGHT = 'RIGHT',
